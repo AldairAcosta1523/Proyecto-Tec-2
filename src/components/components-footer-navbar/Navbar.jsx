@@ -1,13 +1,15 @@
+// COMPONENTE LISTO - SOLO FALTA HACERLO FUNCIONAL
 'use client'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: false },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Home', href: '/', current: false },
+  { name: 'Tienda', href: '/shop', current: false },
+  { name: 'Nosotros', href: '/sobre-nosotros', current: false },
+  { name: 'Contacto', href: '/contactanos', current: false },
 ]
 
 function classNames(...classes) {
@@ -19,9 +21,9 @@ function NavbarPage() {
     <Disclosure as="nav" className="bg-white p-2">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-auto px-2 sm:px-6 lg:px-8 md:px-6">
             <div className="relative flex h-16 items-center justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <div className="absolute inset-y-0 left-0 flex items-center lg:hidden md:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
@@ -33,23 +35,27 @@ function NavbarPage() {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+              <div className='hidden h-12 lg:block md:block'>
+              <a href='/'>
+              <Image
+                    className="h-full w-auto justify-start justify-items-start filter saturate-150 "
+                    src="/logo_splash1.svg"
                     alt="Your Company"
-                  />
-                </div>
-                <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex space-x-4">
+                    height={500}
+                    width={500}
+                    
+                  /></a>
+              </div>
+              <div className="flex flex-1 justify-items-center justify-center sm:items-stretch sm:justify-evenly lg:justify-evenly">
+                <div className="hidden sm:ml-6 lg:block md:block lg:justify-center">
+                  <div className="flex space-x-10 font-extrabold">
                     {navigation.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-800 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          'rounded-md px-3 py-2 text-sm font-medium '
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -65,7 +71,6 @@ function NavbarPage() {
                   className="relative rounded-full bg-white p-1 text-gray-400 hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
                   <ShoppingBagIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 

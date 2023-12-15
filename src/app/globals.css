@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+.card-header {
+  background-image: var(--fondo-image)
+}
+

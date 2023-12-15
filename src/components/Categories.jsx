@@ -1,14 +1,13 @@
-// LOGIN LISTO - SOLO FALTA VINCULARLO AL POST
 'use client'
 import React from "react";
 
 function LoginForm() {
   return (
-    <div className="relative grid grid-cols-1 md:grid-cols-2 h-screen flex-shrink-0"> 
+    <div className="grid grid-cols-1 md:grid-cols-2 h-screen w-auto"> 
       <div className="bg-gray-200 hidden md:block"> 
         <video src="/fondoanimado.mp4" className="w-full h-full object-cover" autoPlay muted loop/>
       </div>
-      <div className="relative flex flex-col justify-center items-center p-6 lg:p-8 bg-white "> 
+      <div className="flex flex-col justify-center items-center p-6 lg:p-8 bg-white"> 
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-20 w-auto"
@@ -17,7 +16,7 @@ function LoginForm() {
           />
         </div>
 
-        <div className="relative mt-10 sm:mx-auto sm:w-full sm:max-w-sm w-full md:w-1/2 lg:w-1/2 ">
+        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm w-full md:w-1/3 lg:w-1/3 ">
           <form className="space-y-6" action="#" method="POST">
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
@@ -36,7 +35,7 @@ function LoginForm() {
             </div>
 
             <div>
-              <div className="relative flex items-center justify-between">
+              <div className="flex items-center justify-between">
                 <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                   Contraseña
                 </label>
